@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import logo from './logo.svg';
 import './App.css';
+// import './App.scss';
 import Result from './Result'
 import Input from './Input'
 import Button from '../components/Button'
@@ -14,11 +15,11 @@ import encrypt from '../utils/encrypt'
 const ContainerWrapper = styled.div`
   // overflow: hidden;
   margin: 1em 0;
-  // color: #fff;
-  border: 1px solid #333;
-  // align-items: center;
+  background: #0cebeb;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   border-radius: 2px;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(9,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 `
@@ -53,7 +54,7 @@ const App = (props) => {
   console.log('app: ', props)
   return (
     <div className="App">
-      <div className="App-header">
+      <div className="App-Detail">
         <ContainerWrapper>
           <Row>
             <Column>

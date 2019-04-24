@@ -19,10 +19,7 @@ const LabelWrapper = styled.label`
 const InputWrapper = styled.input`
   flex-grow: 1;
   width: 350px;
-  height: 20px;
-  font-size: 18px;
-  border-radius: 6px;
-  padding: 0 5px;
+  height: 25px;
 `
 
 class TextInput extends React.Component {

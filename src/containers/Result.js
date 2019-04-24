@@ -4,7 +4,7 @@ import styled from '@emotion/styled'
 const Content =  styled.textarea`
   margin: 10px 0 10px 0;
   min-width: 490px;
-  height: 515px;
+  height: 580px;
   resize: none;
   font-size: 18px;
 `

@@ -9,13 +9,13 @@ const Wrapper = styled.div``
 const Input = (props) => {
   return (
     <Wrapper>
-      <TextInput id='code' label='Code' type='string' { ...props } />
+      <TextInput id='code' label='Code' type='text' { ...props } />
       <TextInput id='interationCount' label='Interation Count' type='number' { ...props } />
       <TextInput id='keySize' label='Key Size' type='number' { ...props } />
-      <TextInput id='passphrase' label='Passphrase' type='string' { ...props } />
-      <TextInput id='iv' label='IV' type='string' { ...props } />
-      <TextInput id='salt' label='SALT' type='string' { ...props } />
-      <TextArea id='planText' label='Plan Text' type='string' { ...props } />
+      <TextInput id='passphrase' label='Passphrase' type='text' { ...props } />
+      <TextInput id='iv' label='IV' type='text' { ...props } />
+      <TextInput id='salt' label='SALT' type='text' { ...props } />
+      <TextArea id='planText' label='Plan Text' type='text' { ...props } />
     </Wrapper>
   )
 }

@@ -19,7 +19,7 @@ const TextAreaWrapper = styled.textarea`
   flex-grow: 1;
   height: 300px;
   resize: none;
-  font-size: 18px;
+  font-size: 15px;
 `
 
 class TextArea extends React.Component {
