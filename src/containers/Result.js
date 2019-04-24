@@ -11,7 +11,7 @@ const Content =  styled.textarea`
 const Result = (props) => {
   console.log('!!!props: ', props)
   return (
-    <Content readOnly value={ props.app.encrypted }></Content>
+    <Content readOnly value={ props.app.result }></Content>
   )
 }
 export default Result

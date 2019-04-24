@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { isNumber } from '../utils/tools'
 
 const Wrapper = styled.div`
   display: flex;
