@@ -1,23 +1,20 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
-
-import logo from './logo.svg';
 import './App.css';
-// import './App.scss';
 import Result from './Result'
 import Input from './Input'
 import Button from '../components/Button'
-import { testAction, setValue } from '../actions/action'
-import { encryptData } from '../utils/tools'
-import encrypt from '../utils/encrypt'
+import { setValue } from '../actions/action'
+import { encrypt, decrypt } from '../utils/encryption'
 
 const ContainerWrapper = styled.div`
   // overflow: hidden;
   margin: 1em 0;
-  background: #0cebeb;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #29ffc6, #20e3b2, #0cebeb); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #1c92d2;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #1c92d2, #f2fcfe);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #1c92d2, #f2fcfe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
   border-radius: 2px;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(9,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -45,11 +42,6 @@ const ButtonWrapper = styled.div`
   justify-content: center;  
 `
 
-const divStyle = {
-  margin: '440px',
-  border: '5px solid pink'
-}
-
 const App = (props) => {
   console.log('app: ', props)
   return (
@@ -60,8 +52,9 @@ const App = (props) => {
             <Column>
               <Input style={{ color: 'red'}} { ...props } />
               <ButtonWrapper>
-                <Button label='Encrypt' { ...props } />
-                <Button styles={{marginLeft: '10px'}} label='Decrypt' { ...props } />
+                <Button label='Encrypt' handleClick={ () => props.encryptFn() } method='encrypt' { ...props } />
+                <Button styles={{marginLeft: '10px'}} handleClick={ () => props.decryptFn() } label='Decrypt' method='decrypt' { ...props } />
+                {/* <Button styles={{marginLeft: '10px'}} label='Clear' method='clear' { ...props } /> */}
               </ButtonWrapper>
             </Column>
             <Column>
@@ -82,9 +75,20 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  testAction: () => dispatch(testAction()),
   setValue: (fieldId, value) => dispatch(setValue(fieldId, value)),
-  encryptFn: () => dispatch(encrypt())
+  encryptFn: () => { 
+    dispatch(setValue('result', 'encrypting...'))
+    setTimeout( () => { 
+      dispatch(encrypt())
+    }, 1000)
+    
+  },
+  decryptFn: () => {
+    dispatch(setValue('result', 'decrypting...'))
+    setTimeout( () => { 
+      dispatch(decrypt())
+    }, 1000)
+  }
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

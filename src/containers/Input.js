@@ -15,7 +15,7 @@ const Input = (props) => {
       <TextInput id='passphrase' label='Passphrase' type='text' { ...props } />
       <TextInput id='iv' label='IV' type='text' { ...props } />
       <TextInput id='salt' label='SALT' type='text' { ...props } />
-      <TextArea id='planText' label='Plan Text' type='text' { ...props } />
+      <TextArea id='data' label='Plain Text / Encrypted Text' type='text' { ...props } />
     </Wrapper>
   )
 }

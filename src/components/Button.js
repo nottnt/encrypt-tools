@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { FaLock, FaLockOpen } from 'react-icons/fa'
 
 const Container = styled.div`
   width: 100%;
@@ -11,6 +12,13 @@ const ButtonWrapper = styled.button`
   border-radius: 5px;
 `
 
+const Icon = styled.span`
+  padding-right: 10px;
+  font-size: 15px;
+`
+const Label = styled.span`
+  font-size: 15px;
+`
 class Button extends React.Component {
   constructor(props) {
     super(props)
@@ -24,10 +32,17 @@ class Button extends React.Component {
   }
 
   render() {
-    const { styles } = this.props
+    const { styles, method, handleClick } = this.props
     return(
       <Container style={styles}>
-        <ButtonWrapper onClick={() => this.props.encryptFn()}>{this.props.label}</ButtonWrapper>
+        <ButtonWrapper onClick={ () => handleClick() }>
+          <Icon>
+            {
+              method === 'encrypt' ? <FaLock /> : <FaLockOpen />
+            }
+          </Icon>
+          <Label>{ this.props.label }</Label>
+        </ButtonWrapper>
       </Container>
     )
   }
