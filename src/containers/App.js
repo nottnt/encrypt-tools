@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
 import './App.css';
+import Typed from '../components/Typed'
 import Result from './Result'
 import Input from './Input'
 import Button from '../components/Button'
@@ -9,12 +10,34 @@ import { setValue } from '../actions/action'
 import { encrypt, decrypt } from '../utils/encryption'
 
 const ContainerWrapper = styled.div`
-  // overflow: hidden;
-  margin: 1em 0;
-  background: #1c92d2;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #1c92d2, #f2fcfe);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #1c92d2, #f2fcfe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(90deg, #4df3c9, #b9b2f2, #a8f5c3);
+  background-size: 600% 600%;
 
+  -webkit-animation: AnimationName 40s ease infinite;
+  -moz-animation: AnimationName 40s ease infinite;
+  -o-animation: AnimationName 40s ease infinite;
+  animation: AnimationName 40s ease infinite;
+
+  @-webkit-keyframes AnimationName {
+      0%{background-position:0% 51%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 51%}
+  }
+  @-moz-keyframes AnimationName {
+      0%{background-position:0% 51%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 51%}
+  }
+  @-o-keyframes AnimationName {
+      0%{background-position:0% 51%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 51%}
+  }
+  @keyframes AnimationName { 
+      0%{background-position:0% 51%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 51%}
+  }
   border-radius: 2px;
   -webkit-box-shadow: 10px 10px 5px 0px rgba(9,0,0,0.75);
   -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -42,12 +65,20 @@ const ButtonWrapper = styled.div`
   justify-content: center;  
 `
 
+const Title = styled.p`
+  font-size: 18px;
+`
+
 const App = (props) => {
-  console.log('app: ', props)
   return (
     <div className="App">
       <div className="App-Detail">
         <ContainerWrapper>
+          <Row>
+            <Column>
+              <Title>Advanced Encryption Standard(AES)</Title>
+            </Column>
+          </Row>
           <Row>
             <Column>
               <Input style={{ color: 'red'}} { ...props } />
@@ -59,11 +90,9 @@ const App = (props) => {
             </Column>
             <Column>
               <Result { ...props } />
+              <Typed />
             </Column>
-            
-
           </Row>
-          
         </ContainerWrapper>
       </div>
     </div>
