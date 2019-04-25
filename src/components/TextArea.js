@@ -17,7 +17,7 @@ const LabelWrapper = styled.label`
 `
 const TextAreaWrapper = styled.textarea`
   flex-grow: 1;
-  height: 300px;
+  height: 250px;
   resize: none;
   font-size: 15px;
 `
