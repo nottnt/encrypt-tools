@@ -13,6 +13,7 @@ const ButtonWrapper = styled.button`
 
 const Label = styled.span`
   font-size: 15px;
+  font-weight: bold;
 `
 class Button extends React.Component {
   constructor(props) {
