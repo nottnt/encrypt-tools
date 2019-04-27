@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 const LabelWrapper = styled.label`
   padding-right: 10px;
   font-size: 18px;
+  color: white;
   text-align: left;
   width: 150px;
 `

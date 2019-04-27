@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { connect } from 'react-redux'
-import './App.css';
+import './App.css'
+import './App.scss'
 import Typed from '../components/Typed'
 import Result from './Result'
 import Input from './Input'
@@ -10,38 +11,12 @@ import { setValue } from '../actions/action'
 import { encrypt, decrypt } from '../utils/encryption'
 
 const ContainerWrapper = styled.div`
-  background: linear-gradient(90deg, #4df3c9, #b9b2f2, #a8f5c3);
-  background-size: 600% 600%;
-
-  -webkit-animation: AnimationName 40s ease infinite;
-  -moz-animation: AnimationName 40s ease infinite;
-  -o-animation: AnimationName 40s ease infinite;
-  animation: AnimationName 40s ease infinite;
-
-  @-webkit-keyframes AnimationName {
-      0%{background-position:0% 51%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 51%}
-  }
-  @-moz-keyframes AnimationName {
-      0%{background-position:0% 51%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 51%}
-  }
-  @-o-keyframes AnimationName {
-      0%{background-position:0% 51%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 51%}
-  }
-  @keyframes AnimationName { 
-      0%{background-position:0% 51%}
-      50%{background-position:100% 50%}
-      100%{background-position:0% 51%}
-  }
-  border-radius: 2px;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(9,0,0,0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 10px;
+  padding: 10px;
+  background: linear-gradient(135deg, #313b53 0%,#213037 100%);
+  -webkit-box-shadow: 0px 0px 54px 16px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 54px 16px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 54px 16px rgba(0,0,0,0.75);
 `
 
 const Row = styled.div`
@@ -67,6 +42,7 @@ const ButtonWrapper = styled.div`
 
 const Title = styled.p`
   font-size: 18px;
+  color: white;
 `
 
 const App = (props) => {
@@ -83,8 +59,8 @@ const App = (props) => {
             <Column>
               <Input style={{ color: 'red'}} { ...props } />
               <ButtonWrapper>
-                <Button label='Encrypt' handleClick={ () => props.encryptFn() } method='encrypt' { ...props } />
-                <Button styles={{marginLeft: '10px'}} handleClick={ () => props.decryptFn() } label='Decrypt' method='decrypt' { ...props } />
+                <Button label='Encrypt' borderColor='green' handleClick={ () => props.encryptFn() } method='encrypt' { ...props } />
+                <Button label='Decrypt' borderColor='red' styles={{marginLeft: '10px'}} handleClick={ () => props.decryptFn() }  method='decrypt' { ...props } />
                 {/* <Button styles={{marginLeft: '10px'}} label='Clear' method='clear' { ...props } /> */}
               </ButtonWrapper>
             </Column>
