@@ -9,13 +9,8 @@ const Container = styled.div`
 const ButtonWrapper = styled.button`
   height: 50px;
   width: 100%;
-  border-radius: 5px;
 `
 
-const Icon = styled.span`
-  padding-right: 10px;
-  font-size: 15px;
-`
 const Label = styled.span`
   font-size: 15px;
 `
@@ -35,12 +30,7 @@ class Button extends React.Component {
     const { styles, method, handleClick } = this.props
     return(
       <Container style={styles}>
-        <ButtonWrapper onClick={ () => handleClick() }>
-          <Icon>
-            {
-              method === 'encrypt' ? <FaLock /> : <FaLockOpen />
-            }
-          </Icon>
+        <ButtonWrapper className={`boxy ${this.props.borderColor}`} onClick={ () => handleClick() }>
           <Label>{ this.props.label }</Label>
         </ButtonWrapper>
       </Container>
