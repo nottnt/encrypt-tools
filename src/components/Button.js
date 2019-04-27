@@ -9,11 +9,7 @@ const Container = styled.div`
 const ButtonWrapper = styled.button`
   height: 50px;
   width: 100%;
-`
-
-const Label = styled.span`
   font-size: 15px;
-  font-weight: bold;
 `
 class Button extends React.Component {
   constructor(props) {
@@ -25,14 +21,15 @@ class Button extends React.Component {
   handleChange(e) {
     this.setState({ value: e.target.value })
     this.props.setValue(this.props.id, e.target.value)
+    
   }
 
   render() {
     const { styles, method, handleClick } = this.props
     return(
       <Container style={styles}>
-        <ButtonWrapper className={`boxy ${this.props.borderColor}`} onClick={ () => handleClick() }>
-          <Label>{ this.props.label }</Label>
+        <ButtonWrapper className='brk-btn' onClick={ () => handleClick() }>
+          { this.props.label }
         </ButtonWrapper>
       </Container>
     )

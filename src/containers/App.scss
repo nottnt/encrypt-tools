@@ -1,80 +1,53 @@
-@mixin bggrad( $c1, $c2, $angle: 155 ) {
-  background: linear-gradient( #{$angle}deg, $c1 0%, $c2 100%);
-} 
-
-@mixin borgrad( $c1, $c2, $angle: 155 ) {
-  border-image: linear-gradient( #{$angle}deg, $c1 0%, $c2 100%) 1 round;
-} 
-
-@mixin someColor( $c1, $c2 ) {
-  
-  @include borgrad( $c1, $c2, 155 );
-  @include bggrad( $c1, $c2, 155 );
-  
-  &:hover {
-    box-shadow: 
-      0 0 0px 1px rgba(255,255,255,0.5),
-      2px 2px 6px rgba(red($c2), green($c2), blue($c2),0.4),
-      -2px -2px 6px rgba(red($c1), green($c1), blue($c1),0.4);
-  }
-
-  background-clip: text;
-  -webkit-background-clip: text;
-
-}
-
-$purple: #fb83fa;
-$aqua: #31bcb8;
-
-$red: #fc5c3c;
-$orange: #ffb638;
-
 $green: #AAFFA9;
 $cyan: #06e5de;
 
-$la: #F0C27B;
-$tokyo: #ad1ba3;
-
-.boxy {
-
-  color: rgba(255,255,255,0);
-  display: inline-block;
-  cursor: pointer;
+.brk-btn {
+  position: relative;
+  color: aqua;
+  font-weight: 550;
+  text-transform: uppercase;
   text-decoration: none;
-  padding: 0.6em 1.6em;
-  margin: 0.6em;
-  border-style: solid;
-  border-width: 1px;
-  transition: all 0.2s ease;
-  @include someColor( $purple, $aqua );
-  
-  &:hover {
-    
-    color: rgba(255, 255, 255,0.1);
-    text-shadow: 0 0 1px rgba(255, 255, 255,0.4);
-    
-  }
-  
-  &.red {
-    @include someColor( $red, $orange );
-  }
-  
-  &.green {
-    @include someColor( $cyan, $green );
-  }
-  
-  &.la {
-    
-    text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 0.05em;
-    font-size: 3em;
-    padding: 0.3em;
-    border-width: 2px;
+  border-image: linear-gradient( 155deg, $green 0%, $cyan 100%) 1 round;
+  background-clip: text;
+  -webkit-background-clip: text;
+  &::before {
+    content: "";
     display: block;
-    width: 70%;
-    margin: 0.6em auto;
-    @include someColor( $la, $tokyo );
+    position: absolute;
+    width: 10%;
+    background: #fff;
+    height: 0.3em;
+    right: 20%;
+    top: -0.21em;
+    transform: skewX(-45deg);
+    -webkit-transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+    
   }
-  
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 10%;
+    background: #fff;
+    height: 0.3em;
+    left: 20%;
+    bottom: -0.25em;
+    transform: skewX(45deg);
+    -webkit-transition: all 0.45 cubic-bezier(0.86, 0, 0.07, 1);
+    transition: all 0.45s cubic-bezier(0.86, 0, 0.07, 1);
+  }
+  &:hover {
+    box-shadow: 
+        0 0 0px 1px rgba(255,255,255,0.5),
+        2px 2px 6px rgba(red($cyan), green($cyan), blue($cyan),0.4),
+        -2px -2px 6px rgba(red($green), green($green), blue($green),0.4);
+        
+    &::before {
+      right: 80%;
+    }
+    &::after {
+      left: 80%;
+    }
+  }
 }
