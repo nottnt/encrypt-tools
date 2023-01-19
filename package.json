@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "build-generally": "react-scripts build",
     "predeploy": "yarn run build",
     "deploy": "yarn run predeploy && gh-pages -d build",
     "test": "node scripts/test.js"
